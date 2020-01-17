@@ -1,0 +1,273 @@
+@media screen and (orientation:portrait) {
+    
+.top{
+    height: 6vh;
+    padding-top: 2vh;
+    background-color: #F7F7F8;
+}
+
+.backb{
+    background-size: 3vh 3vh;                                                   /* Flechas responsive */
+    padding-left: 3vh;                                                          /* Padding de flechas responsive */
+}
+}
+.list-text,.bloq{
+    background-size: 2vh 2vh;                                                   /* Flechas responsive */
+}
+.userlog{
+    height: 6vh;
+}
+
+.cont_log{                                                                      /* Establece un padding responsive */
+    padding-top: 1.4vh;
+}
+@media screen and (orientation:landscape) {
+.list-text,.bloq{
+    background-size: 2vw 2vw;                                                   /* Flechas responsive */
+}
+.top{
+        height: 6vw;
+        padding-top: 2vw;
+        background-color: #F7F7F8;
+}
+.backb{
+    background-size: 3vw 3vw;                                                   /* Flechas responsive */
+    padding-left: 3vw;                                                          /* Padding de flechas responsive */
+}
+.userlog{
+    height: 6vw;
+}
+
+.cont_log{                                                                      /* Establece un padding responsive */
+    padding-top: 1.4vw;
+}
+}
+
+
+
+
+.class-body{
+    overscroll-behavior: contain;                                             /* Evita que la web se actualice al hacer scroll hacia abajo */
+    background: #EFEFF4;                                                    /* Establece el fondo del body */
+}
+
+
+.titlee{
+    text-align: center;                                                        /* Alineo el texto al centro */
+    height: 100%;                                                              /* Utilizo el % para el alto */
+}
+
+
+.textblock{
+    margin: 35px 10px 5px;                                                     /* Le seteo los margenes al texto que va dentro */
+    text-transform: uppercase;                                                 /* Convierto los caracteres en mayusculas */
+    color: #6d6d72;                                                          /* Establezczo el color de las letras */
+}
+
+
+.list-block ul,.listm ul{
+    background: white;                                                       /* Establezco el fondo de la lista en color blanco */
+    list-style: none;                                                          /* Le quito el estilo default a la lista */
+    padding: 0%;                                                               /* Remuevo el padding a la lista */
+}
+
+
+.clickable-item:hover{
+    background-color: #c4c4c4;                                               /* Establece el color al hacer click */
+}
+
+.list-content{
+    padding-left: 15px;                                                         /* Establece el padding izquierdo a los elementos de la lista */
+}
+
+
+.list-text{                                                                     /* Establece el estilo para el contenido de cada fila (posicion del texto, flecha y tamaños) */
+    display: inline-block;
+    padding-right: 35px;
+    background-image: url(../img/arrow.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    min-height: 44px;
+    color: black;
+}
+
+
+.backb{                                                                         /* Establece el estilo para el div que contiene la flecha y texto */
+    position: absolute;
+    background-image: url(../img/back.png);
+    background-position: calc(0% - 0px) center;
+    background-repeat: no-repeat;
+    display: table-cell;
+    vertical-align: middle;
+    float: left;
+    color: #00CCFF;
+}
+
+#msgcont{                                                                       /* Establece el estilo que tendra la caja de comentarios */
+    margin: 5%;
+    width: 90%;
+    text-align: center;
+    background-color: white;
+    padding-bottom: 4vh;
+    padding-top: 5%;
+}
+
+
+/* -------- contact --------- */
+
+.contbody p{                                                                    /* Establece el estilo del p */
+    margin-top: 5vh;
+    margin-bottom: 0;
+}
+
+.normal-container{                                                              /* Estabece el estilo del contenedor */
+    padding: 3vh;
+}
+
+
+/* -------- About --------- */
+
+.normal-list{                                                                   /* Estabece el estilo del contenedor */
+    padding: 0px;
+}
+.unstyle {                                                                      /* Quita el estilo a la lista */
+    list-style: none;
+}
+.unstyle li{                                                                    /* Estabece el estilo del contenedor */
+    padding-bottom: 1vh;
+}
+
+
+#contLogin{                                                                     /* Estabece el estilo del contenedor */
+    margin-top: 5vh;
+    text-align: center;
+}
+
+
+#logogo{                                                                        /* Estabece el estilo de la imagen */
+    width: 191px;
+    height: 46px;
+}
+
+
+#teamCreator,#matchCreator{                                                     /* Estabece el estilo del contenedor */
+    padding: 20px;
+}
+
+
+.userlog{                                                                       /* Estabece el estilo del contenedor */
+    background-color: #F7F7F8;
+    position: fixed;
+    bottom: 0;
+    color: #00CCFF;
+    padding: 5px;
+}
+
+.cmc{                                                                           /* Estabece el estilo del contenedor */
+    padding: 5%;
+}
+
+.ttt{                                                                           /* Impide que el textarea sea modificado */
+    resize: none;
+}
+
+label{                                                                          /* Estabece el estilo a los LABEL */
+    display: inline-block;
+    width: 80px;
+}
+
+.makespace{                                                                     /* Estabece el estilo del contenedor */
+    margin-top: 4vh;
+}
+
+#main_box,#matches_box,#teams_box,#contact_box,#about_box,#login_box,#matchinfo_box,#admin_box{         /* Establece un padding bottom a los ids definidos(para evitar que el footer pise al body cuando este ultimo tiene un height grande) */
+    padding-bottom: 12vh;
+}
+
+
+.cont-match{                                                                     /* Estabece el estilo del contenedor */
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    text-align: center;
+    background-color: white;
+}
+
+.boxx{                                                                            /* Estabece el estilo del contenedor */
+    width: 40%;
+}
+
+.ifbox{                                                                            /* Estabece el estilo del contenedor(frame) */
+    width: 80% !important;
+    margin: 10%
+}
+
+.teamblock1{                                                                       /* Estabece el estilo del contenedor(nombre al lado del logo) */
+    vertical-align: top;
+    margin-left: 1vh;
+}
+
+.top:after,.cardd:after,.list-block ul:before,.clickable-item:after,.listm:before,.listm li:after,.userlog:before{              /* Establece lineas sobre/debajo de cada clase indicada */
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: #c4c4c4;
+    display: block;
+}
+
+.backcard {                                                                         /* Estabece el estilo del contenedor */
+    border: black 1px solid;
+    background-image: url(../img/mainback.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    margin: 10px;
+    margin-top: 5px;
+}
+
+.logo{                                                                                /* Estabece el estilo al logo(tamaño y sombra) */
+    max-height: 25vh;
+    filter: drop-shadow(0px 10px 7px black);
+}
+
+
+/* ------------ matches ----------- */
+
+.bloq{                                                                                   /* Establece estilo a cada fila de los matches(inserta la flecha,tamaño y posicion) */
+    background-image: url(../img/arrow.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+    color: black;
+}
+
+table,td{                                                                               /* Le da estilo a las tablas/filas */
+    border: 1px solid black;
+}
+
+.img-mes{                                                                               /* Establece el tamaño de la imagen de perfil */
+    width: 30%;
+}
+
+#admin_box{                                                                             /* Estabece el estilo del contenedor */
+    text-align: center;
+}
+
+
+.cajon{                                                                                 /* Setea la config para las cajas de los teams en Admin Page */
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+#main_box,#matches_box{                                                                 /* Estabece el estilo del contenedor(para que dichos divs se superpongan y quede bien la animacion del efecto slide) */
+    float: left;
+    position: absolute;
+}

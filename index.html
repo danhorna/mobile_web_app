@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">                                                                                                        <!-- Indica el lenguaje predeterminado de la web -->
+<head>
+    <meta charset="UTF-8">                                                                                              <!-- Indica la codificacion de caracteres utilizada -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                              <!-- Define el area de pantalla disponible para renderizar el contenido -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">                                                               <!-- Establece compatibilidad con IE -->
+    <title>WebApp</title>                                                                                               <!-- Titulo de la web -->
+    <link rel="stylesheet" href="./css/style.css">                                                                      <!-- Mi estilo -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">                <!-- CDN de bootstrap -->
+    <link rel="icon" type="image/png" sizes="64x64" href="./img/icon64.png">                                            <!-- Usa el favicon segun el necesario -->
+    <link rel="icon" type="image/png" sizes="128x128" href="./img/icon128.png">                                         <!-- Usa el favicon segun el necesario -->
+    <meta name="mobile-web-app-capable" content="yes">                                                                  <!-- Web modo de APP -->
+    <meta name="apple-mobile-web-app-capable" content="yes">                                                            <!-- Web modo de APP - Apple -->
+</head>
+<body class="class-body">                                                                                               <!-- Utilizo "class-body" para dar estilo -->
+    <div id="main_box" class="w-100">                                                                                   <!-- Utilizo el identificador "main_box" para ocultar/mostrar el div, ademas de darle estilo. "w-100" para usar el 100% del ancho contenedor  -->
+    <div class="top w-100">                                                                                             <!-- "w-100" para usar el 100% del ancho contenedor. "top" para darle estilo -->
+        <div class="titlee">                                                                                            <!-- "titlee" para darle estilo -->
+            Main
+        </div>
+    </div>
+    <div class="cardd">                                                                                                 <!-- "cardd" para dar estilo -->
+        <div class="backcard">                                                                                          <!-- "backcard" para darle estilo al logo/fondo -->
+            <img class="logo" src="./img/nysl_logo.png">                                                                <!-- Inserto el logo en el contenedor -->
+        </div>
+    </div>
+    <div class="textblock">                                                                                             <!-- "textblock" para dar estilo -->
+        Select an option
+    </div>
+    <div class="list-block">                                                                                            <!-- "list-bloc" para dar estilo a la lista interna -->
+        <ul>
+            <li class="clickable-item">                                                                                 <!-- "clickable-item" para dar estilo -->
+                <a class="testingg" onClick="alternar('matches_box','main_box')">                                       <!-- Funcion "alternar" me muestra el div del primer parametro mientras que oculta el segundo -->
+                <div class="list-content">                                                                              <!-- "list-content" para dar estilo -->
+                    <div class="list-text">                                                                             <!-- "list-text" para dar estilo al contenido -->
+                        Matches
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li class="clickable-item">
+                <a onClick="alternar('teams_box','main_box')">
+                <div class="list-content">
+                    <div class="list-text">
+                        Teams
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li class="clickable-item">
+                <a onClick="alternar('contact_box','main_box')">
+                <div class="list-content">
+                    <div class="list-text">
+                        Contact
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li class="clickable-item">
+                <a onClick="alternar('about_box','main_box')">
+                <div class="list-content">
+                    <div class="list-text">
+                        About
+                    </div>
+                </div>
+                </a>
+            </li>
+            <div id="onlyAdmin" style="display: none;">
+                <li class="clickable-item">
+                    <a onClick="alternar('admin_box','main_box')">
+                    <div class="list-content">
+                        <div class="list-text">
+                            Admin
+                        </div>
+                    </div>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+    </div>
+    <!-- ---------------------------------------------------------- Matches Section ------------------------------------------------------------------ -->
+
+    <div id="matches_box" style="display: none;" class="w-100">                                                         <!-- Utilizo el identificador "main_box" para ocultar/mostrar el div, ademas de darle estilo. "w-100" para usar el 100% del ancho contenedor. "display: none" para setear el div oculto por default -->
+        <div class="top w-100">
+            <a onClick="alternarback('main_box','matches_box')">
+            <div class="backb">                                                                                         <!-- "backb" para dar estilo -->
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                Matches
+            </div>
+        </div>
+        <div class="pl-2 pt-1 pb-1">                                                                                    <!-- Establece el padding left-top-bottom al div -->
+            Tap for info
+        </div>
+        <div class="listm">
+            <ul id="matchesCont">                                                                                       <!-- Identificador "matchesCont" utilizado para escribir el contenido desde js -->
+            </ul>
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------- Match Info Section ------------------------------------------------------------------ -->
+
+    <div id="matchinfo_box" style="display: none;">
+        <div class="top w-100">
+            <a onClick="alternarback('matches_box','matchinfo_box')">
+            <div class="backb">
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                Match Info
+            </div>
+        </div>
+        <div class="mt-4 cont-match pb-2 pt-3" id="matchInfoCont">                                                      <!-- Identificador "matchInfoCont" utilizado para escribir el contenido desde js | "cont-match" para dar estilo -->
+        </div>
+        <div id="msgcont">                                                                                              <!-- "msgcont" para dar estilo -->
+            <h5>Messages</h5>
+            <table class="w-100">
+                <tbody id="writelist">                                                                                  <!-- Identificador "writelist" utilizado para escribir el contenido desde js -->
+                </tbody>
+            </table>
+            <div id="dang" style="display: none;" class="mt-3"><h6 class="text-danger">Login to post a comment</h6></div>       <!-- div que es mostrado si el usuario no esta logueado / Oculto por defecto -->
+            <div id="msgCreator"></div>                                                                                 <!-- Identificador "msgCreator" utilizado para escribir el contenido desde js -->
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------- Teams Section ------------------------------------------------------------------ -->
+
+    <div id="teams_box" style="display: none;">
+        <div class="top w-100">
+            <a onClick="alternarback('main_box','teams_box')">
+            <div class="backb">
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                Teams
+            </div>
+        </div>
+        <div class="pt-4">
+            <ul class="list-group" id="teamCont">                                                                       <!-- Identificador "teamCont" utilizado para escribir el contenido desde js / Establece el div de tipo "list-group"@bootstrap -->
+            </ul>
+        </div>   
+    </div>
+   
+    <!-- ---------------------------------------------------------- Contact Section ------------------------------------------------------------------ -->
+
+    <div id="contact_box" style="display:none">
+        <div class="top w-100">
+            <a onClick="alternarback('main_box','contact_box')">
+            <div class="backb">
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                Contact Us
+            </div>
+        </div>
+        <div class="contbody text-center">
+            <p>Please email us at: </p>
+            <a href="mailto:nysl@chisoccer.org">nysl@chisoccer.org</a>
+            <p>We will reply to your email as soon as we can.</p>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------- About Section ------------------------------------------------------------------ -->
+
+    <div id="about_box" style="display:none">
+        <div class="top w-100">
+            <a onClick="alternarback('main_box','about_box')">
+            <div class="backb">
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                About NYSL
+            </div>
+        </div>
+        <div class="normal-container">                                                                                        <!-- "normal-container","unstyle" para dar estilo -->
+        <ul class="normal-list unstyle">
+            <li><h4>Mission</h4>
+                <ul class="unstyle">
+                    <li>To support young athletes living in Chicago's northside neighborhoods, who have an interest in learning and playing soccer, with opportunities to learn and practice skills related to the game of soccer, specifically those skills around team cooperation and good sportsmanship.</li>
+                </ul>
+            </li>
+            <li><h4>Vision</h4>
+                <ul class="unstyle">
+                    <li>The Northside Youth Soccer League aspires to develop strong, well-rounded, and mindful athletes through the building of character, self-discipline, and leadership.</li>
+                </ul>
+            </li>
+            <li><h4>General Information</h4>
+                <ul class="unstyle">
+                    <li>The Northside Youth Soccer League was established in 1996 to provide athletes residing in Chicago's northside neighborhoods an environment in which to learn and play soccer. To be a member of NYSL, you must be between the ages of 4 - 12 and reside in a Chicago northside neighborhood. NYSL is run by a small full-time staff, and relies on the generous volunteer time of parents and previous league members.</li>
+                </ul>
+            </li>
+        </ul>
+        </div>    
+    </div>
+
+    <!-- --------------------------------------------------------------- Login Section ---------------------------------------------------------------- -->
+
+    <div id="login_box" style="display:none" class="position-relative" >
+        <div class="top w-100">
+            <a onClick="alternarback('main_box','login_box');showLogin()">                                              <!-- Funcion "showLogin" me vuelve a mostrar el footer -->
+            <div class="backb">
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                Login/Register
+            </div>
+        </div>
+        <div id="contLogin">                                                                                             <!-- "contlogin" para dar estilo -->
+            <h5>Login | Register</h5></br>
+            <div class="form-group">                                                                                     <!-- "form-group"@bootstrap -->
+                <label>Email*:</label>
+                <input type="text" id="uname">
+            </div>
+            <div class="form-group">
+                <label>Password*:</label>
+                <input type="password" id="upass">
+            </div>
+            <div class="form-group">
+                <label>Nick:</label>
+                <input type="text" id="unick">
+            </div>
+            <button onclick="loginWithEmail()">Login</button>                                                            <!-- Funcion "loginWithEmail" para realizar logueo -->
+            <button class="ml-5" onclick="registerWithEmail()">Register</button>                                         <!-- Funcion "registerWithEmail" para realizar registro -->
+            <h5 class="makespace">Or</h5></br>
+            <a onclick="loginWithGoogle()"> <img id="logogo" src="./img/goob.png"></a>                                   <!-- Funcion "loginWithGoogle" para realizar logueo con google / "logogo" para dar estilo -->
+        </div>
+
+    </div>
+
+    <!-- ------------------------------------------ Admin Section -------------------------------- -->
+
+    <div id="admin_box" style="display: none;">                                                                         <!-- Utilizo el identificador "admin_box" para ocultar/mostrar el div ademas de dar estilo -->
+        <div class="top w-100">
+            <a onClick="alternarback('main_box','admin_box');showLogin()">
+            <div class="backb">
+                Back
+            </div>
+            </a>
+            <div class="titlee">
+                Control Panel
+            </div>
+        </div>
+        <div class="mt-2">
+            <h5>Create Team</h5>
+            <div id="teamCreator" class="mt-2" style="border:1px solid black;">                                                         <!-- "teamCreator" para dar estilo -->
+                <label for="teamName">Name:</label><input type="text" id="teamName"></br>
+                <input type="file" id="teamLogo" class="mt-3"></br>
+                <button id="createTeam" class="mt-4">Create Team</button>                                                                 <!-- "createTeam" para ser ejecutado con jquery al hacer click, crea el team -->
+                <div class="text-left">                                                                                                   <!-- "text-left"@boostrap -->
+                    Teams:
+                </div>
+                <div id="teamsLive"></div>                                                                                                <!-- Identificador "teamsLive" utilizado para escribir el contenido desde js -->
+            </div>
+            <h5 class="mt-3">Create Match</h5>
+            <div id="matchCreator" style="border:1px solid black;">                                                                     <!-- "matchCreator" para dar estilo -->
+                <label for="matchCreator1">Team one:</label><select name="selectTeam1" id="matchCreator1"></select></br>                  <!-- Identificador "matchCreator1" para obtener los teams y ponerlos en el select -->
+                <label for="matchCreator2">Team two:</label><select name="selectTeam2" id="matchCreator2"></select></br>                  <!-- Identificador "matchCreator2" para obtener los teams y ponerlos en el select -->
+                <label for="matchDate">Date: </label><input type="date" id="matchDate"></br>
+                <label class="mt-2" for="matchTime">Hour:</label><input type="time" id="matchTime"></br>
+                <label class="mt-2" for="matchLocation">Location:</label><input type="text" id="matchLocation"></br>
+                <label class="mt-2" for="matchFrame">Frame:</label><input type="text" id="matchFrame"></br>
+                <br>
+                <button id="createMatch">Create Match</button>                                                                            <!-- "createMatch" para ser ejecutado con jquery al hacer click, crea el match -->
+                <div class="text-left">
+                    Matches:
+                </div>
+                <div id="matchesLive"></div>                                                                                              <!-- Identificador "matchesLive" utilizado para escribir el contenido desde js -->
+            </div>
+        </div>
+    </div>
+
+    <div id="log_suc" class="alert alert-success fixed-top" role="alert" style="display: none;">                                <!-- Identificador "log_suc" usado para mostrar/ocultar el div / "alert..."@bootstrap -->
+        <h5 class="alert-heading">Inicio de sesion correcto!</h5>
+        <p>Pronto seras redirigido...</p>
+    </div>
+
+    <div id="log_error" class="alert alert-danger fixed-top" role="alert" style="display: none;">                               <!-- Identificador "log_error" usado para mostrar/ocultar el div / "alert..."@bootstrap -->
+        <h5 class="alert-heading">Inicio de sesion incorrecto!</h5>
+        <p id="log_error_code"></p>
+    </div>
+
+    <div id="reg_suc" class="alert alert-success fixed-top" role="alert" style="display: none;">                                <!-- Identificador "reg_suc" usado para mostrar/ocultar el div / "alert..."@bootstrap -->
+        <h5 class="alert-heading">Registro de usuario correcto!</h5>
+        <p>Pronto seras redirigido...</p>
+    </div>
+
+    <div id="reg_error" class="alert alert-danger fixed-top" role="alert" style="display: none;">                               <!-- Identificador "reg_error" usado para mostrar/ocultar el div / "alert..."@bootstrap -->
+        <h5 class="alert-heading">Registro de usuario incorrecto!</h5>
+        <p id="reg_error_code"></p>
+    </div>
+
+    <div id="logout_suc" class="alert alert-success fixed-bottom" role="alert" style="display: none;">                          <!-- Identificador "logout_suc" usado para mostrar/ocultar el div / "alert..."@bootstrap -->
+        <h5 class="alert-heading">Cerraste sesion correctamente!</h5>
+    </div>
+
+    <nav id="footlog" class="p-0 w-100 userlog">                                                                                <!-- Identificador "footlog" usado para mostrar/ocultar el div | "userlog" para dar estilo -->
+        <div id="toLogIn" class="pl-3 cont_log">                                                                                <!-- Identificador "toLogin" para mostrar/ocultar el div | "cont_log" para dar estilo -->
+            <a onclick="login();hideLogin()">                                                                                   <!-- Funcion "login" oculta cualquier div para mostrar solo el del login, Funcion "hideLogin" oculta el footer -->
+            <p>Login</p>
+            </a>
+        </div>
+        <div id="toLogOut" class="pl-3 cont_log">
+            <a onclick="logout()">                                                                                               <!-- Funcion "logout" cierra la sesion -->
+            <p>Logout</p>
+            </a>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>         <!-- CDN de jquery -->
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>      <!-- CDN de jquery UI -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>                                                                                    <!-- CDN de Firebase-app -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>                                                                                   <!-- CDN de Firebase-auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>                                                                               <!-- CDN de Firebase-database -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>                                                                                <!-- CDN de Firebase-storage -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>                                                                              <!-- CDN de Firebase-analytics -->
+
+    <script>                                                                                                                                                            // Configuracion de firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyCtC9O3qoxlVzpxmyxbnHhXxwyNQUG2sg0",
+            authDomain: "nysl-db5cb.firebaseapp.com",
+            databaseURL: "https://nysl-db5cb.firebaseio.com",
+            projectId: "nysl-db5cb",
+            storageBucket: "nysl-db5cb.appspot.com",
+            messagingSenderId: "751674003768",
+            appId: "1:751674003768:web:e2e561c2ee0b0af011b1cd",
+            measurementId: "G-KGJEL35KSY"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="./js/functions.js"></script>                                                                                                                           <!-- Ubicacion de mi js -->
+</body>
+</html>
